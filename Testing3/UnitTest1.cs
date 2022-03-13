@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace Testing3
@@ -9,7 +10,7 @@ namespace Testing3
         [TestMethod]
         public void InstanceOK()
         {
-            clsStaff AnStaff = new clsStaff();
+            clsStaff AnStaff = new clsStaff ();
 
             Assert.IsNotNull(AnStaff);
         }

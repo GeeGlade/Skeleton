@@ -17,15 +17,15 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void ActivePropertOk()
+        public void StaffIDOk()
         {
             clsStaff AnStaff = new clsStaff();
 
-            Boolean TestData = true;
+            Int32 TestData = 324780;
 
-            AnStaff.Active = TestData;
+            AnStaff.StaffID = TestData;
 
-            Assert.AreEqual(AnStaff.Active, TestData);
+            Assert.AreEqual(AnStaff.StaffID, TestData);
         }
 
         [TestMethod]
@@ -64,40 +64,17 @@ namespace Testing3
             Assert.AreEqual(AnStaff.DOB, TestData);
         }
 
+
         [TestMethod]
-        public void UsernameOk()
+        public void EmployedOk()
         {
             clsStaff AnStaff = new clsStaff();
 
-            String TestData = "User123";
+            Boolean TestData = true;
 
-            AnStaff.Username = TestData;
+            AnStaff.Employed = TestData;
 
-            Assert.AreEqual(AnStaff.Username, TestData);
-        }
-
-        [TestMethod]
-        public void PasswordOk()
-        {
-            clsStaff AnStaff = new clsStaff();
-
-            String TestData = "Password234";
-
-            AnStaff.Password = TestData;
-
-            Assert.AreEqual(AnStaff.Password, TestData);
-        }
-
-        [TestMethod]
-        public void GenderOk()
-        {
-            clsStaff AnStaff = new clsStaff();
-
-            String TestData = "M";
-
-            AnStaff.Gender = TestData;
-
-            Assert.AreEqual(AnStaff.Gender, TestData);
+            Assert.AreEqual(AnStaff.Employed, TestData);
         }
 
         [TestMethod]
@@ -110,6 +87,147 @@ namespace Testing3
             AnStaff.Salary = TestData;
 
             Assert.AreEqual(AnStaff.Salary, TestData);
+        }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+
+            clsStaff AnStaff = new clsStaff();
+
+            Boolean Found = false;
+
+            String FirstName = "Matthew";
+
+            Found = AnStaff.Find(FirstName);
+
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void FirstNameFound()
+        {
+
+            clsStaff AnStaff = new clsStaff();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            String FirstName = "Jimmy";
+
+            Found = AnStaff.Find(FirstName);
+
+            if (AnStaff.FirstName != "Jimmy")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void LastNameFound()
+        {
+
+            clsStaff AnStaff = new clsStaff();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            String FirstName = "Jimmy";
+
+            Found = AnStaff.Find(FirstName);
+
+            if (AnStaff.LastName != "Smith")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void DOBFound()
+        {
+
+            clsStaff AnStaff = new clsStaff();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            String FirstName = "Jimmy";
+
+            Found = AnStaff.Find(FirstName);
+
+            if (AnStaff.DOB != "01/05/2000")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void EmployedFound()
+        {
+
+            clsStaff AnStaff = new clsStaff();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            String FirstName = "Jimmy";
+
+            Found = AnStaff.Find(FirstName);
+
+            if (AnStaff.Employed != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void SalaryFound()
+        {
+
+            clsStaff AnStaff = new clsStaff();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            String FirstName = "Jimmy";
+
+            Found = AnStaff.Find(FirstName);
+
+            if (AnStaff.Salary != 30000)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void StaffIDFound()
+        {
+
+            clsStaff AnStaff = new clsStaff();
+
+            Boolean Found = false;
+
+            Boolean OK = true;
+
+            String FirstName = "Jimmy";
+
+            Found = AnStaff.Find(FirstName);
+
+            if (AnStaff.StaffID != 1)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
     }
 }

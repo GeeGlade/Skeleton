@@ -19,9 +19,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         AnStaff.FirstName = txtFirstName.Text;
         AnStaff.LastName = txtLastName.Text;
-        AnStaff.DOB = txtDOB.Text;
+        AnStaff.DateAdded = Convert.ToDateTime (txtDateAdded.Text);
         AnStaff.Employed = chkEmployed.Checked;
-
+        //AnStaff.StaffID = Convert.ToInt32(txtStaffID.Text);
 
         Session["AnStaff"] = AnStaff;
 

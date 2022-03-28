@@ -53,15 +53,15 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void DOBOk()
+        public void DateAddedOk()
         {
             clsStaff AnStaff = new clsStaff();
 
-            String TestData = "23/04/2000";
+            DateTime TestData = DateTime.Now.Date;
 
-            AnStaff.DOB = TestData;
+            AnStaff.DateAdded = TestData;
 
-            Assert.AreEqual(AnStaff.DOB, TestData);
+            Assert.AreEqual(AnStaff.DateAdded, TestData);
         }
 
 
@@ -147,7 +147,7 @@ namespace Testing3
         }
 
         [TestMethod]
-        public void DOBFound()
+        public void DateAddedFound()
         {
 
             clsStaff AnStaff = new clsStaff();
@@ -160,7 +160,7 @@ namespace Testing3
 
             Found = AnStaff.Find(FirstName);
 
-            if (AnStaff.DOB != "01/05/2000")
+            if (AnStaff.DateAdded != Convert.ToDateTime("01/05/2000"))
             {
                 OK = false;
             }

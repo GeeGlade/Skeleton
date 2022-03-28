@@ -18,8 +18,8 @@
             <asp:Label ID="lblLastName" runat="server" Text="Last Name"></asp:Label>
             <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
         </p>
-        <asp:Label ID="lblDOB" runat="server" Text="DOB" width="67px"></asp:Label>
-        <asp:TextBox ID="txtDOB" runat="server"></asp:TextBox>
+        <asp:Label ID="lblDateAdded" runat="server" Text="Date Added" width="95px"></asp:Label>
+        <asp:TextBox ID="txtDateAdded" runat="server"></asp:TextBox>
         <p>
             <asp:Label ID="lblSalary" runat="server" Text="Salary" width="67px"></asp:Label>
             <asp:TextBox ID="txtSalary" runat="server"></asp:TextBox>

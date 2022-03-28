@@ -41,16 +41,16 @@ namespace ClassLibrary
                 mLastName = value;
             }
         }
-        private String mDOB;
-        public string DOB
+        private DateTime mDateAdded;
+        public DateTime DateAdded
         {
             get
             {
-                return mDOB;
+                return mDateAdded;
             }
             set
             {
-                mDOB = value;
+                mDateAdded = value;
             }
         }
         private Int32 mStaffID;
@@ -83,7 +83,7 @@ namespace ClassLibrary
             mStaffID = 1;
             mFirstName = "Jimmy";
             mLastName = "Smith";
-            mDOB = "01/05/2000";
+            mDateAdded = Convert.ToDateTime("01/05/2000");
             mSalary = 30000;
             mEmployed = true;
             return true;

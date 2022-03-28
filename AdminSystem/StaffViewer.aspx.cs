@@ -15,7 +15,7 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(AnStaff.StaffID + "\n");
         Response.Write(AnStaff.FirstName + "\n");
         Response.Write(AnStaff.LastName + "\n");
-        Response.Write(AnStaff.DOB + "\n");
+        Response.Write(AnStaff.DateAdded + "\n");
         Response.Write(AnStaff.Salary + "\n");
         Response.Write(AnStaff.Employed);
     }

@@ -78,15 +78,32 @@ namespace ClassLibrary
             }
         }
 
-        public bool Find(string firstName)
+        public bool Find(int StaffID)
         {
-            mStaffID = 1;
-            mFirstName = "Jimmy";
-            mLastName = "Smith";
-            mDateAdded = Convert.ToDateTime("01/05/2000");
-            mSalary = 30000;
-            mEmployed = true;
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the StaffId to search for 
+            DB.AddParameter("@StaffID", StaffID);
+            //execute the stored procedure 
+            DB.Execute("sproc_tblStaff_FilterByStaffID");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mEmployed = Convert.ToBoolean(DB.DataTable.Rows[0]["Employed"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
+                mSalary = Convert.ToInt32(DB.DataTable.Rows[0]["Salary"]);
+
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
         }
     }
 }

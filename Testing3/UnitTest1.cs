@@ -97,9 +97,9 @@ namespace Testing3
 
             Boolean Found = false;
 
-            String FirstName = "Matthew";
+            Int32 StaffID = 1;
 
-            Found = AnStaff.Find(FirstName);
+            Found = AnStaff.Find(StaffID);
 
             Assert.IsTrue(Found);
         }
@@ -114,11 +114,11 @@ namespace Testing3
 
             Boolean OK = true;
 
-            String FirstName = "Jimmy";
+            Int32 StaffID = 1;
 
-            Found = AnStaff.Find(FirstName);
+            Found = AnStaff.Find(StaffID);
 
-            if (AnStaff.FirstName != "Jimmy")
+            if (AnStaff.FirstName != "Matthew")
             {
                 OK = false;
             }
@@ -135,9 +135,9 @@ namespace Testing3
 
             Boolean OK = true;
 
-            String FirstName = "Jimmy";
+            Int32 StaffID = 1;
 
-            Found = AnStaff.Find(FirstName);
+            Found = AnStaff.Find(StaffID);
 
             if (AnStaff.LastName != "Smith")
             {
@@ -156,9 +156,9 @@ namespace Testing3
 
             Boolean OK = true;
 
-            String FirstName = "Jimmy";
+            Int32 StaffID = 1;
 
-            Found = AnStaff.Find(FirstName);
+            Found = AnStaff.Find(StaffID);
 
             if (AnStaff.DateAdded != Convert.ToDateTime("01/05/2000"))
             {
@@ -177,9 +177,9 @@ namespace Testing3
 
             Boolean OK = true;
 
-            String FirstName = "Jimmy";
+            Int32 StaffID = 1;
 
-            Found = AnStaff.Find(FirstName);
+            Found = AnStaff.Find(StaffID);
 
             if (AnStaff.Employed != true)
             {
@@ -198,9 +198,9 @@ namespace Testing3
 
             Boolean OK = true;
 
-            String FirstName = "Jimmy";
+            Int32 StaffID = 1;
 
-            Found = AnStaff.Find(FirstName);
+            Found = AnStaff.Find(StaffID);
 
             if (AnStaff.Salary != 30000)
             {
@@ -219,9 +219,9 @@ namespace Testing3
 
             Boolean OK = true;
 
-            String FirstName = "Jimmy";
+            Int32 StaffID = 1;
 
-            Found = AnStaff.Find(FirstName);
+            Found = AnStaff.Find(StaffID);
 
             if (AnStaff.StaffID != 1)
             {

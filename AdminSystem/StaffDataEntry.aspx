@@ -9,19 +9,20 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="lblStaffID" runat="server" Text="Staff ID" width="67px"></asp:Label>
+            <asp:Label ID="lblStaffID" runat="server" Text="Staff ID" width="80px"></asp:Label>
             <asp:TextBox ID="txtStaffID" runat="server" style="margin-left: 15px"></asp:TextBox>
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         </div>
-        <asp:Label ID="lblFirstName" runat="server" Text="First Name" width="67px"></asp:Label>
+        <asp:Label ID="lblFirstName" runat="server" Text="First Name" width="95px"></asp:Label>
         <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
         <p>
-            <asp:Label ID="lblLastName" runat="server" Text="Last Name"></asp:Label>
+            <asp:Label ID="lblLastName" runat="server" Text="Last Name" width="95px"></asp:Label>
             <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
         </p>
         <asp:Label ID="lblDateAdded" runat="server" Text="Date Added" width="95px"></asp:Label>
         <asp:TextBox ID="txtDateAdded" runat="server"></asp:TextBox>
         <p>
-            <asp:Label ID="lblSalary" runat="server" Text="Salary" width="67px"></asp:Label>
+            <asp:Label ID="lblSalary" runat="server" Text="Salary" width="95px"></asp:Label>
             <asp:TextBox ID="txtSalary" runat="server"></asp:TextBox>
         </p>
         <asp:CheckBox ID="chkEmployed" runat="server" Text="Employed" />

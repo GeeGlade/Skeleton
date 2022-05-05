@@ -16,16 +16,37 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsStaff AnStaff = new clsStaff();
+        //capture the firstname 
+        string FirstName = txtFirstName.Text;
+        //capture the lastname
+        string LastName = txtLastName.Text;
+        //capture DateAdded
+        string DateAdded = txtDateAdded.Text;
+        //capture the salary
+        string Salary = txtSalary.Text;
+        //variable to store error messages
+        string Error = "";
+        //validate the date
+        Error = AnStaff.Valid(FirstName, LastName, DateAdded, Salary);
 
-        AnStaff.FirstName = txtFirstName.Text;
-        AnStaff.LastName = txtLastName.Text;
-        AnStaff.DateAdded = Convert.ToDateTime (txtDateAdded.Text);
-        AnStaff.Employed = chkEmployed.Checked;
-        //AnStaff.StaffID = Convert.ToInt32(txtStaffID.Text);
+        if (Error == "")
+        {
+            AnStaff.FirstName =FirstName;
+            AnStaff.LastName = LastName;
+            AnStaff.DateAdded = Convert.ToDateTime(DateAdded);
+            AnStaff.Salary = Convert.ToInt32(Salary);
+            Session["AnStaff"] = AnStaff;
+            Response.Redirect("StaffViewer.aspx");
+        }
 
-        Session["AnStaff"] = AnStaff;
+        else
+        {
+            //display the error
+            lblError.Text = Error;
+        }
 
-        Response.Redirect("StaffViewer.aspx");
+       
+
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

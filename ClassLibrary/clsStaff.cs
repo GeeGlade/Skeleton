@@ -105,5 +105,168 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string FirstName, string LastName, string DateAdded, string Salary)
+        {
+
+
+
+            //create a string varuable to store the error 
+
+            String Error = "";
+
+            DateTime DateTemp;
+
+            Int32 SalaryTemp;
+
+            //if the FirstName is blank
+
+            if (FirstName.Length == 0)
+
+            {
+
+                //record the error 
+
+                Error = Error + "The Last Name may not be blank ";
+
+
+
+            }
+
+            if (FirstName.Length > 30)
+
+            {
+
+                //record the error 
+
+                Error = Error + "The Last Name may not be more than 30 characters: ";
+
+
+
+            }
+
+            if (LastName.Length == 0)
+
+            {
+
+                //record the error 
+
+                Error = Error + "The Last Name may not be blank ";
+
+
+
+            }
+
+            if (LastName.Length > 30)
+
+            {
+
+                //record the error 
+
+                Error = Error + "The Last Name may not be more than 30 characters: ";
+
+
+
+            }
+
+
+
+
+            try
+
+            {
+
+
+
+                //copy the DOB value to the DateTemp variable 
+
+                SalaryTemp = Convert.ToInt32(Salary);
+
+                if (SalaryTemp < 0)
+
+                {
+
+                    //record the error 
+
+                    Error = Error + "Salary Cannot be Below 0";
+
+
+
+                }
+
+
+
+            }
+
+            catch
+
+            {
+
+
+
+                //record  the error 
+
+                Error = Error + "The salary was not a valid number:";
+
+            }
+
+
+
+            try
+
+            {
+
+                DateTemp = Convert.ToDateTime(DateAdded);
+
+
+
+                if (DateTemp < DateTime.Now.Date)
+
+                {
+
+                    //record the error 
+
+                    Error = Error + "The date cannot be in the past: ";
+
+
+
+                }
+
+
+
+                //check to see if the date is greater than today's date
+
+                if (DateTemp > DateTime.Now.Date)
+
+                {
+
+                    //record the error
+
+                    Error = Error + "The date cannot be in the future : ";
+
+                }
+
+
+
+            }
+
+            catch
+
+            {
+
+
+
+                //record  the error 
+
+                Error = Error + "The date was not a valid date:";
+
+            }
+
+
+
+            // returns any error messages 
+
+            return Error;
+        }
     }
 }

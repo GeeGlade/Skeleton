@@ -39,6 +39,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsStaff AnStaff = new clsStaff();
+        string StaffID = txtStaffID.Text;
         //capture the firstname 
         string FirstName = txtFirstName.Text;
         //capture the lastname
@@ -54,7 +55,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         if (Error == "")
         {
-            AnStaff.StaffID = StaffID;
+            AnStaff.StaffID = Convert.ToInt32(StaffID);
             AnStaff.FirstName = FirstName;
             AnStaff.LastName = LastName;
             AnStaff.DateAdded = Convert.ToDateTime(DateAdded);
@@ -62,7 +63,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnStaff.Employed = chkEmployed.Checked;
             clsStaffCollection StaffList = new clsStaffCollection();
             
-            if (StaffID == -1)
+            if (Convert.ToInt32(StaffID) == -1)
             {
                 StaffList.ThisStaff = AnStaff;
                 StaffList.Add();
@@ -70,7 +71,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
             else
             {
-                StaffList.ThisStaff.Find(StaffID);
+                StaffList.ThisStaff.Find(Convert.ToInt32(StaffID));
                 StaffList.ThisStaff = AnStaff;
                 StaffList.Update();
             }

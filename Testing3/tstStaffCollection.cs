@@ -200,8 +200,47 @@ namespace Testing3
             Assert.IsFalse(Found);
         }
 
+        [TestMethod]
+        public void ReportByFirstNameMethodOK()
+        {
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+
+            FilteredStaff.ReportByFirstName("");
+            Assert.AreEqual(AllStaff.Count, FilteredStaff.Count);
+        }
 
 
+        [TestMethod]
+        public void ReportByFirstNameNoneFound()
+        {
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+
+            FilteredStaff.ReportByFirstName("xxxxxxxxxx");
+            Assert.AreEqual(0, FilteredStaff.Count);
+        }
+
+        [TestMethod]
+        public void ReportByFirstNameDataFound()
+        {
+            clsStaffCollection FilteredStaff = new clsStaffCollection();
+            Boolean OK = true;
+            FilteredStaff.ReportByFirstName("Matthew");
+            if (FilteredStaff.Count == 1)
+            {
+                if (FilteredStaff.StaffList[0].StaffID != 1)
+                {
+                    OK = false;
+                }
+
+            }
+            else
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
     }
 
 

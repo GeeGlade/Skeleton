@@ -124,7 +124,7 @@ namespace Testing3
 
             Found = AnStaff.Find(StaffID);
 
-            if (AnStaff.FirstName != "Matthew")
+            if (AnStaff.FirstName != "Robert")
             {
                 OK = false;
             }
@@ -145,7 +145,7 @@ namespace Testing3
 
             Found = AnStaff.Find(StaffID);
 
-            if (AnStaff.LastName != "Smith")
+            if (AnStaff.LastName != "Phillips")
             {
                 OK = false;
             }
@@ -166,7 +166,7 @@ namespace Testing3
 
             Found = AnStaff.Find(StaffID);
 
-            if (AnStaff.DateAdded != Convert.ToDateTime("01/05/2000"))
+            if (AnStaff.DateAdded != Convert.ToDateTime("06/05/2022"))
             {
                 OK = false;
             }
@@ -187,7 +187,7 @@ namespace Testing3
 
             Found = AnStaff.Find(StaffID);
 
-            if (AnStaff.Employed != true)
+            if (AnStaff.Employed != false)
             {
                 OK = false;
             }
@@ -208,7 +208,7 @@ namespace Testing3
 
             Found = AnStaff.Find(StaffID);
 
-            if (AnStaff.Salary != 30000)
+            if (AnStaff.Salary != 40000)
             {
                 OK = false;
             }

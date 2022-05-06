@@ -106,12 +106,12 @@ namespace Testing3
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.StaffID = 25;
-            TestItem.FirstName = "Paul";
-            TestItem.LastName = "Brown";
+            TestItem.StaffID = 123;
+            TestItem.FirstName = "test";
+            TestItem.LastName = "testname";
             TestItem.DateAdded = DateTime.Now.Date;
-            TestItem.Salary = 90000;
-            TestItem.Employed = true;
+            TestItem.Salary = 60000;
+            TestItem.Employed = false;
             //set ThisAnStaff to the test data
             AllStaff.ThisStaff = TestItem;
             //add the record
@@ -138,12 +138,11 @@ namespace Testing3
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.StaffID = 1;
-            TestItem.FirstName = "Matthew";
-            TestItem.LastName = "Smith";
+            TestItem.FirstName = "Robert";
+            TestItem.LastName = "Johnson";
             TestItem.DateAdded = DateTime.Now.Date;
-            TestItem.Salary = 30000;
-            TestItem.Employed = true;
+            TestItem.Salary = 70000;
+            TestItem.Employed = false;
             //set ThisstaffMember to the test data
             AllStaff.ThisStaff = TestItem;
             //add the record
@@ -152,12 +151,11 @@ namespace Testing3
             TestItem.StaffID = PrimaryKey;
 
             //set its properties
-            TestItem.StaffID = 1;
-            TestItem.FirstName = "Robert";
-            TestItem.LastName = "Phillips";
+            TestItem.FirstName = "Paul";
+            TestItem.LastName = "Wilkinson";
             TestItem.DateAdded = DateTime.Now.Date;
-            TestItem.Salary = 40000;
-            TestItem.Employed = false;
+            TestItem.Salary = 50000;
+            TestItem.Employed = true;
             AllStaff.ThisStaff = TestItem;
             AllStaff.Update();
 
@@ -169,6 +167,37 @@ namespace Testing3
 
 
 
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create the item of the test data
+            clsStaff TestItem = new clsStaff();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.StaffID = 123;
+            TestItem.FirstName = "test";
+            TestItem.LastName = "testname";
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.Salary = 60000;
+            TestItem.Employed = false;
+            //set ThisstaffMember to the test data
+            AllStaff.ThisStaff = TestItem;
+            //add the record
+            PrimaryKey = AllStaff.Add();
+            //setthe primary key of the test data
+            TestItem.StaffID = PrimaryKey;
+
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            AllStaff.Delete();
+
+            Boolean Found = AllStaff.ThisStaff.Find(PrimaryKey);
+
+            Assert.IsFalse(Found);
         }
 
 

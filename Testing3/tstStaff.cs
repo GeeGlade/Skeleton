@@ -124,7 +124,7 @@ namespace Testing3
 
             Found = AnStaff.Find(StaffID);
 
-            if (AnStaff.FirstName != "Robert")
+            if (AnStaff.FirstName != "Matthew")
             {
                 OK = false;
             }
@@ -145,7 +145,7 @@ namespace Testing3
 
             Found = AnStaff.Find(StaffID);
 
-            if (AnStaff.LastName != "Phillips")
+            if (AnStaff.LastName != "Smith")
             {
                 OK = false;
             }
@@ -208,7 +208,7 @@ namespace Testing3
 
             Found = AnStaff.Find(StaffID);
 
-            if (AnStaff.Salary != 40000)
+            if (AnStaff.Salary != 30000)
             {
                 OK = false;
             }

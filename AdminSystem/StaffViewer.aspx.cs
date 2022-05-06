@@ -12,11 +12,6 @@ public partial class _1Viewer : System.Web.UI.Page
     {
         clsStaff AnStaff = new clsStaff();
         AnStaff = (clsStaff)Session["AnStaff"];
-        Response.Write(AnStaff.StaffID + "\n");
-        Response.Write(AnStaff.FirstName + "\n");
-        Response.Write(AnStaff.LastName + "\n");
-        Response.Write(AnStaff.DateAdded + "\n");
-        Response.Write(AnStaff.Salary + "\n");
-        Response.Write(AnStaff.Employed);
+        Response.Write(AnStaff.StaffID + "<br/>" + AnStaff.FirstName + "<br/>" + AnStaff.LastName + "<br/>" + AnStaff.DateAdded + "<br/>" + AnStaff.Salary);
     }
 }

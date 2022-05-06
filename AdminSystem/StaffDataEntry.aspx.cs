@@ -8,8 +8,31 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 StaffID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        StaffID = Convert.ToInt32(Session["StaffID"]);
+        if (IsPostBack == false)
+        {
+            if (StaffID != -1)
+            {
+                DisplayStaff();
+            }
+        }
+    }
+
+    private void DisplayStaff()
+    {
+        //create an instance of the staff list
+        clsStaffCollection StaffBook = new clsStaffCollection();
+        //find the record to update
+        txtStaffID.Text = StaffBook.ThisStaff.StaffID.ToString();
+        txtFirstName.Text = StaffBook.ThisStaff.FirstName;
+        txtLastName.Text = StaffBook.ThisStaff.LastName;
+        txtDateAdded.Text = StaffBook.ThisStaff.DateAdded.ToString();
+        txtSalary.Text = StaffBook.ThisStaff.Salary.ToString();
+        chkEmployed.Checked = StaffBook.ThisStaff.Employed;
+
 
     }
 
@@ -31,14 +54,27 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         if (Error == "")
         {
-            AnStaff.FirstName =FirstName;
+            AnStaff.StaffID = StaffID;
+            AnStaff.FirstName = FirstName;
             AnStaff.LastName = LastName;
             AnStaff.DateAdded = Convert.ToDateTime(DateAdded);
             AnStaff.Salary = Convert.ToInt32(Salary);
             AnStaff.Employed = chkEmployed.Checked;
             clsStaffCollection StaffList = new clsStaffCollection();
-            StaffList.ThisStaff = AnStaff;
-            StaffList.Add();
+            
+            if (StaffID == -1)
+            {
+                StaffList.ThisStaff = AnStaff;
+                StaffList.Add();
+            }
+
+            else
+            {
+                StaffList.ThisStaff.Find(StaffID);
+                StaffList.ThisStaff = AnStaff;
+                StaffList.Update();
+            }
+
             Response.Redirect("StaffViewer.aspx");
         }
 

@@ -16,6 +16,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsStaff AnStaff = new clsStaff();
+        string StaffID = txtStaffID.Text;
         //capture the firstname 
         string FirstName = txtFirstName.Text;
         //capture the lastname
@@ -31,6 +32,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         if (Error == "")
         {
+            AnStaff.StaffID = Convert.ToInt32(StaffID);
             AnStaff.FirstName =FirstName;
             AnStaff.LastName = LastName;
             AnStaff.DateAdded = Convert.ToDateTime(DateAdded);

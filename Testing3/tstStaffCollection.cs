@@ -96,6 +96,35 @@ namespace Testing3
 
         }
 
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsStaffCollection AllStaff = new clsStaffCollection();
+            //create the item of the test data
+            clsStaff TestItem = new clsStaff();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.StaffID = 4;
+            TestItem.FirstName = "Paul";
+            TestItem.LastName = "Smith";
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.Salary = 60000;
+            TestItem.Employed = true;
+            //set ThisstaffMember to the test data
+            AllStaff.ThisStaff = TestItem;
+            //add the record
+            PrimaryKey = AllStaff.Add();
+            //setthe primary key of the test data
+            TestItem.StaffID = PrimaryKey;
+            //find the record
+            AllStaff.ThisStaff.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllStaff.ThisStaff, TestItem);
+
+        }
+
     }
 
   

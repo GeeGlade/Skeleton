@@ -166,7 +166,7 @@ namespace Testing3
 
             Found = AnStaff.Find(StaffID);
 
-            if (AnStaff.DateAdded != Convert.ToDateTime("01/05/2000"))
+            if (AnStaff.DateAdded != Convert.ToDateTime("06/05/2022"))
             {
                 OK = false;
             }

@@ -6,8 +6,10 @@ namespace ClassLibrary
     public class clsStaffCollection
     {
 
+
         //private data member for the list
         List<clsStaff> mStaffList = new List<clsStaff>();
+        clsStaff mThisStaff = new clsStaff();
         public List<clsStaff> StaffList
         {
             get
@@ -34,7 +36,17 @@ namespace ClassLibrary
             }
         }
 
-        public clsStaff ThisStaff { get; set; }
+        public clsStaff ThisStaff
+        {
+            get
+            {
+                return mThisStaff;
+            }
+            set
+            {
+                mThisStaff = value;
+            }
+        }
 
         public clsStaffCollection()
         {
@@ -70,6 +82,13 @@ namespace ClassLibrary
             }
 
 
+        }
+
+        public int Add()
+        {
+            mThisStaff.StaffID = 4;
+
+            return mThisStaff.StaffID;
         }
     }
 

@@ -9,8 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="lblStaffID" runat="server" Text="Staff ID" width="80px"></asp:Label>
-            <asp:TextBox ID="txtStaffID" runat="server"> </asp:TextBox>
+            <asp:Label ID="lblStaffID" runat="server" Text="Staff ID" width="95px"></asp:Label>
+            <asp:TextBox ID="txtStaffID" runat="server" style="margin-left: 0px"> </asp:TextBox>
             <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
         </div>
         <asp:Label ID="lblFirstName" runat="server" Text="First Name" width="95px"></asp:Label>

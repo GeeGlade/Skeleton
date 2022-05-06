@@ -35,7 +35,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnStaff.LastName = LastName;
             AnStaff.DateAdded = Convert.ToDateTime(DateAdded);
             AnStaff.Salary = Convert.ToInt32(Salary);
-            Session["AnStaff"] = AnStaff;
+            AnStaff.Employed = chkEmployed.Checked;
+            clsStaffCollection StaffList = new clsStaffCollection();
+            StaffList.ThisStaff = AnStaff;
+            StaffList.Add();
             Response.Redirect("StaffViewer.aspx");
         }
 

@@ -16,15 +16,33 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOk_Click(object sender, EventArgs e)
     {
         clsCustomer ACustomer = new clsCustomer();
-        ACustomer.CustomerUsername = txtCustomerUsername.Text;
-        ACustomer.CustomerPassword = txtCustomerPassword.Text;
-        ACustomer.DateAdded = Convert.ToDateTime(txtDateAdded);
-        ACustomer.BillingShippingAddress = txtBSA.Text;
-        ACustomer.Over18 = chkOver18.Checked;
 
-        Session["ACustomer"] = ACustomer;
-        //Navigate to viewer page
-        Response.Redirect("CustomerViewer.aspx");
+        string CustomerUsername = txtCustomerUsername.Text;
+        string CustomerPassword = txtCustomerPassword.Text;
+        string DateAdded = txtDateAdded.Text;
+        string BillingShippingAddress = txtBSA.Text;
+
+
+
+        string Error = ACustomer.Valid(CustomerUsername, CustomerPassword, DateAdded, BillingShippingAddress);
+
+        if(Error == "")
+        {
+            ACustomer.CustomerUsername = CustomerUsername;
+            ACustomer.CustomerPassword = CustomerPassword;
+            ACustomer.DateAdded = Convert.ToDateTime(DateAdded);
+            ACustomer.BillingShippingAddress = BillingShippingAddress;
+            ACustomer.Over18 = chkOver18.Checked;
+
+            Session["ACustomer"] = ACustomer;
+            //Navigate to viewer page
+            Response.Redirect("CustomerViewer.aspx");
+        } else
+        {
+            lblError.Text = Error;
+        }
+
+        
     }
 
     protected void btnFind_Click(object sender, EventArgs e)

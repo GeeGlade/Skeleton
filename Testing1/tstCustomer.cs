@@ -81,6 +81,7 @@ namespace Testing1
             Assert.AreEqual(TestCustomer.Over18, testData);
         }
 
+        [TestMethod]
         public void BillingShippingAddressOK()
         {
             //Create instance of clsCustomer class
@@ -91,6 +92,153 @@ namespace Testing1
             TestCustomer.BillingShippingAddress = testData;
             //Test to see if it functions as expected
             Assert.AreEqual(TestCustomer.BillingShippingAddress, testData);
+        }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //Create instance of clsCustomer class
+            clsCustomer TestCustomer = new clsCustomer();
+            //Boolean stores validation results
+            Boolean Found = false;
+            //Test data generated
+            Int32 CustomerID = 10;
+            //Invoke Find method
+            Found = TestCustomer.Find(CustomerID);
+            //Test to see if it functions as expected
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestCustomerIDFound()
+        {
+            //Create instance of clsCustomer class
+            clsCustomer TestCustomer = new clsCustomer();
+            //Boolean stores validation results
+            Boolean Found = false;
+            //Data validity boolean (assumed true)
+            Boolean OK = true;
+            //Test data generated
+            Int32 CustomerID = 10;
+            //Invoke Find method
+            Found = TestCustomer.Find(CustomerID);
+            //Check data validity
+            if(TestCustomer.CustomerID != 10)
+            {
+                OK = false;
+            }
+            //Test to see if it functions as expected
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestCustomerUsernameFound()
+        {
+            //Create instance of clsCustomer class
+            clsCustomer TestCustomer = new clsCustomer();
+            //Boolean stores validation results
+            Boolean Found = false;
+            //Data validity boolean (assumed true)
+            Boolean OK = true;
+            //Test data generated
+            Int32 CustomerID = 10;
+            //Invoke Find method
+            Found = TestCustomer.Find(CustomerID);
+            //Check data validity
+            if (TestCustomer.CustomerUsername != "test")
+            {
+                OK = false;
+            }
+            //Test to see if it functions as expected
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestCustomerPasswordFound()
+        {
+            //Create instance of clsCustomer class
+            clsCustomer TestCustomer = new clsCustomer();
+            //Boolean stores validation results
+            Boolean Found = false;
+            //Data validity boolean (assumed true)
+            Boolean OK = true;
+            //Test data generated
+            Int32 CustomerID = 10;
+            //Invoke Find method
+            Found = TestCustomer.Find(CustomerID);
+            //Check data validity
+            if (TestCustomer.CustomerPassword != "testpass")
+            {
+                OK = false;
+            }
+            //Test to see if it functions as expected
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestDateAddedFound()
+        {
+            //Create instance of clsCustomer class
+            clsCustomer TestCustomer = new clsCustomer();
+            //Boolean stores validation results
+            Boolean Found = false;
+            //Data validity boolean (assumed true)
+            Boolean OK = true;
+            //Test data generated
+            Int32 CustomerID = 10;
+            //Invoke Find method
+            Found = TestCustomer.Find(CustomerID);
+            //Check data validity
+            if (TestCustomer.DateAdded != Convert.ToDateTime("16/09/2015"))
+            {
+                OK = false;
+            }
+            //Test to see if it functions as expected
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestOver18Found()
+        {
+            //Create instance of clsCustomer class
+            clsCustomer TestCustomer = new clsCustomer();
+            //Boolean stores validation results
+            Boolean Found = false;
+            //Data validity boolean (assumed true)
+            Boolean OK = true;
+            //Test data generated
+            Int32 CustomerID = 10;
+            //Invoke Find method
+            Found = TestCustomer.Find(CustomerID);
+            //Check data validity
+            if (!TestCustomer.Over18)
+            {
+                OK = false;
+            }
+            //Test to see if it functions as expected
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestBillingShippingAddressFound()
+        {
+            //Create instance of clsCustomer class
+            clsCustomer TestCustomer = new clsCustomer();
+            //Boolean stores validation results
+            Boolean Found = false;
+            //Data validity boolean (assumed true)
+            Boolean OK = true;
+            //Test data generated
+            Int32 CustomerID = 10;
+            //Invoke Find method
+            Found = TestCustomer.Find(CustomerID);
+            //Check data validity
+            if (TestCustomer.BillingShippingAddress != "123 test street")
+            {
+                OK = false;
+            }
+            //Test to see if it functions as expected
+            Assert.IsTrue(Found);
         }
     }
 }

@@ -81,16 +81,26 @@ namespace ClassLibrary
 
         public bool Find(Int32 CustomerID)
         {
-            mOver18 = true;
-            mCustomerID = 10;
-            mCustomerUsername = "test";
-            mCustomerPassword = "testpass";
-            mDateAdded = Convert.ToDateTime("16/9/2015");
-            mBillingShippingAddress = "123 test street";
+            //Create insatnce of clsDataConnection class
+            clsDataConnection DB = new clsDataConnection();
+            //Add parameter of ID to search for
+            DB.AddParameter("@CustomerID", CustomerID);
+            //Execute stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByCustomerID");
+            //If database is found
+            if(DB.Count == 1)
+            {
+                mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);
+                mCustomerUsername = Convert.ToString(DB.DataTable.Rows[0]["CustomerUsername"]);
+                mCustomerPassword = Convert.ToString(DB.DataTable.Rows[0]["CustomerPassword"]);
+                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+                mOver18 = Convert.ToBoolean(DB.DataTable.Rows[0]["Over18"]);
+                mBillingShippingAddress = Convert.ToString(DB.DataTable.Rows[0]["BillingShippingAddress"]);
 
-
-
-            return true;
+                return true;
+            }
+            //If database is not found
+            return false;
         }
     }
 }

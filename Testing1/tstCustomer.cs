@@ -102,7 +102,7 @@ namespace Testing1
             //Boolean stores validation results
             Boolean Found = false;
             //Test data generated
-            Int32 CustomerID = 10;
+            Int32 CustomerID = 3;
             //Invoke Find method
             Found = TestCustomer.Find(CustomerID);
             //Test to see if it functions as expected
@@ -119,16 +119,16 @@ namespace Testing1
             //Data validity boolean (assumed true)
             Boolean OK = true;
             //Test data generated
-            Int32 CustomerID = 10;
+            Int32 CustomerID = 3;
             //Invoke Find method
             Found = TestCustomer.Find(CustomerID);
             //Check data validity
-            if(TestCustomer.CustomerID != 10)
+            if(TestCustomer.CustomerID != 3)
             {
                 OK = false;
             }
             //Test to see if it functions as expected
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
@@ -141,7 +141,7 @@ namespace Testing1
             //Data validity boolean (assumed true)
             Boolean OK = true;
             //Test data generated
-            Int32 CustomerID = 10;
+            Int32 CustomerID = 3;
             //Invoke Find method
             Found = TestCustomer.Find(CustomerID);
             //Check data validity
@@ -150,7 +150,7 @@ namespace Testing1
                 OK = false;
             }
             //Test to see if it functions as expected
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
@@ -163,7 +163,7 @@ namespace Testing1
             //Data validity boolean (assumed true)
             Boolean OK = true;
             //Test data generated
-            Int32 CustomerID = 10;
+            Int32 CustomerID = 3;
             //Invoke Find method
             Found = TestCustomer.Find(CustomerID);
             //Check data validity
@@ -172,7 +172,7 @@ namespace Testing1
                 OK = false;
             }
             //Test to see if it functions as expected
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
@@ -185,7 +185,7 @@ namespace Testing1
             //Data validity boolean (assumed true)
             Boolean OK = true;
             //Test data generated
-            Int32 CustomerID = 10;
+            Int32 CustomerID = 3;
             //Invoke Find method
             Found = TestCustomer.Find(CustomerID);
             //Check data validity
@@ -194,7 +194,7 @@ namespace Testing1
                 OK = false;
             }
             //Test to see if it functions as expected
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
@@ -207,7 +207,7 @@ namespace Testing1
             //Data validity boolean (assumed true)
             Boolean OK = true;
             //Test data generated
-            Int32 CustomerID = 10;
+            Int32 CustomerID = 3;
             //Invoke Find method
             Found = TestCustomer.Find(CustomerID);
             //Check data validity
@@ -216,7 +216,7 @@ namespace Testing1
                 OK = false;
             }
             //Test to see if it functions as expected
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
 
         [TestMethod]
@@ -229,7 +229,7 @@ namespace Testing1
             //Data validity boolean (assumed true)
             Boolean OK = true;
             //Test data generated
-            Int32 CustomerID = 10;
+            Int32 CustomerID = 3;
             //Invoke Find method
             Found = TestCustomer.Find(CustomerID);
             //Check data validity
@@ -238,7 +238,7 @@ namespace Testing1
                 OK = false;
             }
             //Test to see if it functions as expected
-            Assert.IsTrue(Found);
+            Assert.IsTrue(OK);
         }
     }
 }

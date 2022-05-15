@@ -18,7 +18,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsCustomer ACustomer = new clsCustomer();
         ACustomer.CustomerUsername = txtCustomerUsername.Text;
         ACustomer.CustomerPassword = txtCustomerPassword.Text;
-        //ACustomer.DateAdded = txtDateAdded.Text;
+        ACustomer.DateAdded = Convert.ToDateTime(txtDateAdded);
         ACustomer.BillingShippingAddress = txtBSA.Text;
         ACustomer.Over18 = chkOver18.Checked;
 

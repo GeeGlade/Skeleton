@@ -150,5 +150,35 @@ namespace Testing1
             //Test to see if both objects are the same
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //Create instance of clsCustomerCollection class
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //Test data
+            clsCustomer TestItem = new clsCustomer();
+            Int32 PrimaryKey = 0;
+            //Set properties of test data
+            TestItem.CustomerUsername = "john";
+            TestItem.CustomerPassword = "smith";
+            TestItem.DateAdded = DateTime.Now.Date;
+            TestItem.BillingShippingAddress = "house lane";
+            TestItem.Over18 = true;
+            //Assign data to clsCustomerCollection instance
+            AllCustomers.ThisCustomer = TestItem;
+            //Add record
+            PrimaryKey = AllCustomers.Add();
+            //Set primary key to primary key of test data
+            TestItem.CustomerID = PrimaryKey;
+            //Find record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //Delete record
+            AllCustomers.Delete();
+            //Find if it has been deleted
+            Boolean Found = AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //Test to see if both objects are the same
+            Assert.IsFalse(Found);
+        }
     }
 }

@@ -21,7 +21,15 @@ public partial class _1_List : System.Web.UI.Page
         clsCustomerCollection Customers = new clsCustomerCollection();
         lstCustomerList.DataSource = Customers.CustomerList;
         lstCustomerList.DataValueField = "CustomerID";
-        lstCustomerList.DataTextField = "DateAdded";
+        lstCustomerList.DataTextField = "CustomerUsername";
         lstCustomerList.DataBind();
+    }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        //-1 in address handler means it's a new record
+        Session["AddressNo"] = -1;
+        //Redirects to data entry
+        Response.Redirect("CustomerDataEntry.aspx");
     }
 }

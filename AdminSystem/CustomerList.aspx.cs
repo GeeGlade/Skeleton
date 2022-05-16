@@ -29,7 +29,7 @@ public partial class _1_List : System.Web.UI.Page
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         //-1 in address handler means it's a new record
-        Session["AddressNo"] = -1;
+        Session["CustomerID"] = -1;
         //Redirects to data entry
         Response.Redirect("CustomerDataEntry.aspx");
     }

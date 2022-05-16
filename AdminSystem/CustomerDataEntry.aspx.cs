@@ -8,9 +8,26 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 CustomerID;
     protected void Page_Load(object sender, EventArgs e)
     {
+        CustomerID = Convert.ToInt32(Session["CustomerID"]);
+        if(!IsPostBack && CustomerID != -1)
+        {
+            DisplayCustomers();
+        }
+    }
 
+    void DisplayCustomers()
+    {
+        clsCustomerCollection Customers = new clsCustomerCollection();
+        Customers.ThisCustomer.Find(CustomerID);
+        txtCustomerID.Text = Customers.ThisCustomer.CustomerID.ToString();
+        txtCustomerUsername.Text = Customers.ThisCustomer.CustomerUsername.ToString();
+        txtCustomerPassword.Text = Customers.ThisCustomer.CustomerPassword.ToString();
+        txtDateAdded.Text = Customers.ThisCustomer.DateAdded.ToString();
+        txtBSA.Text = Customers.ThisCustomer.BillingShippingAddress.ToString();
+        chkOver18.Checked = Customers.ThisCustomer.Over18;
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
@@ -28,6 +45,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         if(Error == "")
         {
+            ACustomer.CustomerID = CustomerID;
             ACustomer.CustomerUsername = CustomerUsername;
             ACustomer.CustomerPassword = CustomerPassword;
             ACustomer.DateAdded = Convert.ToDateTime(DateAdded);
@@ -36,12 +54,21 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
             //New instance of CustomerList to add to
             clsCustomerCollection CustomerList = new clsCustomerCollection();
-            CustomerList.ThisCustomer = ACustomer;
-            CustomerList.Add();
 
-            Session["ACustomer"] = ACustomer;
-            //Navigate to viewer page
-            Response.Redirect("CustomerViewer.aspx");
+            if (CustomerID == -1)
+            { 
+                CustomerList.ThisCustomer = ACustomer;
+                CustomerList.Add();
+            }
+            else
+            {
+                CustomerList.ThisCustomer.Find(CustomerID);
+                CustomerList.ThisCustomer = ACustomer;
+                CustomerList.Update();
+            }
+
+            //Navigate to list page
+            Response.Redirect("CustomerList.aspx");
         } else
         {
             lblError.Text = Error;

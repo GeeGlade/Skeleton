@@ -87,5 +87,20 @@ namespace ClassLibrary
             //Returns primary key and adds to table
             return DB.Execute("sproc_tblCustomer_Insert");
         }
+
+        public void Update()
+        {
+            //Updates data in database with new values from mThisCustomer
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("CustomerID", mThisCustomer.CustomerID);
+            DB.AddParameter("CustomerUsername", mThisCustomer.CustomerUsername);
+            DB.AddParameter("CustomerPassword", mThisCustomer.CustomerPassword);
+            DB.AddParameter("DateAdded", mThisCustomer.DateAdded);
+            DB.AddParameter("BillingShippingAddress", mThisCustomer.BillingShippingAddress);
+            DB.AddParameter("Over18", mThisCustomer.Over18);
+
+            DB.Execute("sproc_tblCustomer_Update");
+        }
     }
 }

@@ -7,6 +7,17 @@ namespace Testing2
     [TestClass]
     public class tstOrders
     {
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsOrders AnOrder = new clsOrders();
+            Boolean Found = false;
+            Int32 OrderID = 1;
+            Found = AnOrder.Find(OrderID);
+            Assert.IsTrue(Found);
+        }
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -85,17 +96,109 @@ namespace Testing2
 
         [TestMethod]
 
-        public void DeliveryAddressPropertyOK()
+            public void DeliveryAddressPropertyOK()
+            {
+                //this creates a instance of the class we want to create
+                clsOrders AnOrder = new clsOrders();
+                //this creates some test data to assign to the property
+                String TestData = "25 Thisway Street Leicester";
+                // assign the data to the property
+                AnOrder.DeliveryAddress = TestData;
+                // test to see that the two values are the same
+                Assert.AreEqual(AnOrder.DeliveryAddress, TestData);
+            }
+        
+        
+        
+
+        [TestMethod]
+        public void TestOrderIDFound()
         {
-            //this creates a instance of the class we want to create
-            clsOrders AnOrder = new clsOrders();
-            //this creates some test data to assign to the property
-            String TestData = "25 Thisway Street Leicester";
-            // assign the data to the property
-            AnOrder.DeliveryAddress = TestData;
-            // test to see that the two values are the same
-            Assert.AreEqual(AnOrder.DeliveryAddress, TestData);
+            clsOrders  AnOrder = new clsOrders();
+
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderID = 21;
+            Found = AnOrder.Find(OrderID);
+            if(AnOrder.OrderID  !=21)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
         }
-            
+        [TestMethod]
+
+        public void TestOrderDateFound()
+        {
+            clsOrders AnOrder = new clsOrders();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderID = 21;
+            Found = AnOrder.Find(OrderID);
+            if(AnOrder.OrderDate!= Convert.ToDateTime("16/09/2015"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestOrdersContentFound()
+        {
+            clsOrders AnOrder = new clsOrders();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderID = 21;
+            Found = AnOrder.Find(OrderID);
+            if (AnOrder.OrderContents != "Test Order content")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestActiveFound()
+        {
+            clsOrders AnOrder = new clsOrders();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderID = 21;
+            Found = AnOrder.Find(OrderID);
+            if (AnOrder.Active != true)
+            { 
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestTotalPriceFound()
+        {
+            clsOrders AnOrder = new clsOrders();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderID = 21;
+            Found = AnOrder.Find(OrderID);
+            if (AnOrder.TotalPrice != (float)Convert.ToDecimal("34.34"));
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestDeliveryAddressFound()
+        {
+            clsOrders AnOrder = new clsOrders();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 OrderID = 21;
+            Found = AnOrder.Find(OrderID);
+            if (AnOrder.DeliveryAddress != "Test delivery address")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+
+        }
+        }
     }
-}

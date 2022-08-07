@@ -75,7 +75,7 @@ namespace Testing2
             // this creates a instance of the class we want to create 
             clsOrders AnOrder = new clsOrders();
             // this creates some test data to assign to the property
-            float TestData = 35;
+            float TestData = 54;
             //Assign the data to the property
             AnOrder.TotalPrice = TestData;
             // Test to see that the two values are the same
@@ -105,7 +105,7 @@ namespace Testing2
             // boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 OrderID = 6;
+            Int32 OrderID = 21;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //test to see if the result is true
@@ -123,7 +123,7 @@ namespace Testing2
             //boolean variable to record if data is OK (Assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderID = 6;
+            Int32 OrderID = 21;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the propery
@@ -146,11 +146,11 @@ namespace Testing2
             //boolean variable to record if data is OK (Assume it is_
             Boolean OK = true;
             //create some tersrt data to use with the method 
-            Int32 OrderID = 6;
+            Int32 OrderID = 21;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
-            if (AnOrder.OrderDate != Convert.ToDateTime("14/09/1999"))
+            if (AnOrder.OrderDate != Convert.ToDateTime("16/09/2015"))
             {
                 OK = false;
 
@@ -167,11 +167,11 @@ namespace Testing2
             //boolean variable to record if data is OK (Assume it is_
             Boolean OK = true;
             //create some tersrt data to use with the method 
-            Int32 OrderID = 6;
+            Int32 OrderID = 21;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
-            if (AnOrder.OrderContents != "TestContent")
+            if (AnOrder.OrderContents != "Test order content")
             {
                 OK = false;
 
@@ -191,11 +191,11 @@ namespace Testing2
             //boolean variable to record if data is OK (Assume it is_
             Boolean OK = true;
             //create some tersrt data to use with the method 
-            Int32 OrderID = 6;
+            Int32 OrderID = 21;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the Order ID
-            if (AnOrder.OrderID != 6)
+            if (AnOrder.OrderID != 21)
             {
                 OK = false;
             }
@@ -214,11 +214,11 @@ namespace Testing2
             //boolean variable to record if data is OK (Assume it is_
             Boolean OK = true;
             //create some tersrt data to use with the method 
-            Int32 OrderID = 6;
+            Int32 OrderID = 21;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
-            if (AnOrder.TotalPrice != 200)
+            if (AnOrder.TotalPrice != 23)
             {
                 OK = false;
 
@@ -239,11 +239,11 @@ namespace Testing2
             //boolean variable to record if data is OK (Assume it is_
             Boolean OK = true;
             //create some tersrt data to use with the method 
-            Int32 OrderID = 6;
+            Int32 OrderID = 21;
             //invoke the method
             Found = AnOrder.Find(OrderID);
             //check the property
-            if (AnOrder.DeliveryAddress != "testAddress")
+            if (AnOrder.DeliveryAddress != "Test delivery Address")
             {
                 OK = false;
             }

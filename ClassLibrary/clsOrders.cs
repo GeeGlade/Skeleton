@@ -44,20 +44,20 @@ namespace ClassLibrary
         }
 
         //private data member for order contents
-        private string mOrderContents;
+        private string mOrderContent;
         //public property for order contents
-        public string OrderContents
+        public string OrderContent
         {
             get
             {
                 //return the private data
-                return mOrderContents;
+                return mOrderContent;
             }
 
             set
             {
                 //set the private data
-                mOrderContents = value;
+                mOrderContent = value;
             }
         }
 
@@ -133,6 +133,7 @@ namespace ClassLibrary
             }
         }
 
+
         public bool Find(int OrderID)
         {
             //creates an instance of the data connection
@@ -147,7 +148,7 @@ namespace ClassLibrary
                 //copy the data from the database to the private data members
                 mOrderID = Convert.ToInt32(DB.DataTable.Rows[0]["OrderID"]);
                 mTotalPrice = Convert.ToInt32(DB.DataTable.Rows[0]["TotalPrice"]);
-                mOrderContents = Convert.ToString(DB.DataTable.Rows[0]["OrderContents"]);
+                mOrderContent = Convert.ToString(DB.DataTable.Rows[0]["OrderContent"]);
                 mDeliveryAddress = Convert.ToString(DB.DataTable.Rows[0]["DeliveryAddress"]);
                 mDispatchedStatus = Convert.ToBoolean(DB.DataTable.Rows[0]["DispatchedStatus"]);
                 mOrderdate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
@@ -161,6 +162,27 @@ namespace ClassLibrary
                 return false;
             }
 
+        }
+
+        public string Valid( string orderContent, string orderDate, string deliveryAddress, string totalPrice)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //if the ordercontent is blank
+            if(orderContent.Length == 0)
+            {
+                //record the error
+                Error = Error + "The order content may not be blank; ";
+            }
+            //if the order content greater than 50
+            if(orderContent.Length >50)
+            {
+                //record the Error
+                Error = Error + "The Order content can't be greater than 50 characters";
+            }
+            return Error;
+
+           
         }
     }
 }

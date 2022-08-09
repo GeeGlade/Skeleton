@@ -19,7 +19,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
        clsOrders AnOrder = new clsOrders();
         string OrderID = txtOrderID.Text;
         //Capture the all of the inputs
-      AnOrder.OrderContents = txtOrderContents.Text;
+      AnOrder.OrderContent = txtOrderContents.Text;
       AnOrder.OrderDate = Convert.ToDateTime(txtOrderDate.Text);
         AnOrder.TotalPrice = (float)Convert.ToDecimal(txtTotalPrice.Text);
       AnOrder.DeliveryAddress = txtDeliveryAddress.Text;

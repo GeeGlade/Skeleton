@@ -164,12 +164,17 @@ namespace ClassLibrary
 
         }
 
-        public string Valid( string orderContent, string orderDate, string deliveryAddress, string totalPrice)
+        public string Valid(string orderContent, string orderDate, string deliveryAddress, string totalPrice)
         {
             //create a string variable to store the error
             String Error = "";
+            //create a temporay variable to store data values
+            DateTime DateTemp;
+            //create a temporay variable to store data values
+            Int32 TotalPriceTemp;
             //if the ordercontent is blank
-            if(orderContent.Length == 0)
+
+            if (orderContent.Length == 0)
             {
                 //record the error
                 Error = Error + "The order content may not be blank; ";
@@ -180,9 +185,63 @@ namespace ClassLibrary
                 //record the Error
                 Error = Error + "The Order content can't be greater than 50 characters";
             }
-            return Error;
+            try
+            {
 
+
+                //copy the orderDate value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(orderDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date can not be in the past: ";
+                }
+                //check to see if the date is greater than todays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date can not be in the future";
+                }
+               
+            }
+
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date: ";
+            }
+
+            if(deliveryAddress.Length ==0)
+            {
+                //record the error
+                Error = Error + "The delivery address can not be blank";
+            }
+            if (deliveryAddress.Length > 50)
+            {
+                //record the Error
+                Error = Error + "The delivery addresss can't be greater than 50 characters";
+            }
+
+            //copying the price to the temporay variable
            
+            try
+            {
+                TotalPriceTemp = Convert.ToInt32(totalPrice);
+                if (TotalPriceTemp < 0)
+                {
+                    Error = Error + "The total price can not be lower than or be £0";
+                }
+                else
+                    Error = Error + "That is not a valid input for total price";
+            }
+            catch
+            {
+                Error = Error + "That is not a valid input for total price";
+            }
+
+            return Error;
         }
+
+       
     }
 }

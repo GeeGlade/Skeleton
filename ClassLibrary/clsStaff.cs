@@ -116,7 +116,7 @@ namespace ClassLibrary
             String Error = "";
 
             DateTime DateTemp;
-
+             
             Int32 SalaryTemp;
 
             //if the FirstName is blank

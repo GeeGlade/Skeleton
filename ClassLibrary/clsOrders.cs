@@ -231,8 +231,7 @@ namespace ClassLibrary
                 {
                     Error = Error + "The total price can not be lower than or be £0";
                 }
-                else
-                    Error = Error + "That is not a valid input for total price";
+               
             }
             catch
             {

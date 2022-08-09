@@ -11,8 +11,8 @@
         <asp:Label ID="lblOrderID" runat="server" Text="Order ID" width="105px"></asp:Label>
         <asp:TextBox ID="txtOrderID" runat="server"></asp:TextBox>
         <div>
-            <asp:Label ID="lblOrderContents" runat="server" Text="Order Contents" width="105px"></asp:Label>
-            <asp:TextBox ID="txtOrderContents" runat="server"></asp:TextBox>
+            <asp:Label ID="lblOrderContents" runat="server" Text="Order Content" width="105px"></asp:Label>
+            <asp:TextBox ID="txtOrderContent" runat="server" OnTextChanged="txtOrderContents_TextChanged"></asp:TextBox>
         </div>
         <asp:Label ID="lblOrderDate" runat="server" Text="Order Date" width="105px"></asp:Label>
         <asp:TextBox ID="txtOrderDate" runat="server"></asp:TextBox>

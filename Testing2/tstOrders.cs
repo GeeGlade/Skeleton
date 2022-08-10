@@ -620,11 +620,11 @@ namespace Testing2
             //string variable to store any error messages
             String Error = "";
             //create some test data to pass to the method
-            string TotalPrice = 00000.ToString();
+            string TotalPrice = "";
             //invoke the method
             Error = AnOrder.Valid(OrderContent, OrderDate, DeliveryAddress,TotalPrice);
             //test to see taht the result is correct
-           Assert.AreNotEqual(Error, "");
+            Assert.AreNotEqual(Error, "");
         }
         [TestMethod]
  public void TotalPriceInvalidData()

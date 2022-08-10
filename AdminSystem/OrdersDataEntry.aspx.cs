@@ -7,16 +7,13 @@ using System.Web.UI.WebControls;
 using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
-{
-    protected void Page_Load(object sender, EventArgs e)
-    {
 
-    }
+{
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
         // creates a new instance of clsOrders
-       clsOrders AnOrder = new clsOrders();
+        clsOrders AnOrder = new clsOrders();
         //capture the order content
         string OrderContent = txtOrderContent.Text;
         //capture total price
@@ -38,18 +35,25 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnOrder.OrderDate = Convert.ToDateTime(OrderDate);
             //capture the delivery address
             AnOrder.DeliveryAddress = DeliveryAddress;
-            //store the oder details in the session object
-            Session["AnOrder"] = AnOrder;
-            //redirectto the viewr page
-            Response.Write("OrdersViewer.aspx");
+            //capture dispatched status
+            AnOrder.DispatchedStatus = chkDispatchedStatus.Checked;
+            //create a new instance of the order collection
+            clsOrdersCollection OrdersList = new clsOrdersCollection();
+            //set ThisOrders property
+            OrdersList.ThisOrders = AnOrder;
+            //add the new record
+            OrdersList.Add();
+            //redirect back to listpage
+            Response.Redirect("OrdersList.aspx");
         }
-
-
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     
-        Session["AnOrder"] = AnOrder;
-        
-        //navigate to the viewer page
-        Response.Redirect("OrdersViewer.aspx");
+    
+     
     }
 
 
@@ -58,4 +62,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
+
+    
 }

@@ -6,11 +6,16 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body style="height: 330px">
     <form id="form1" runat="server">
         <div>
             <asp:ListBox ID="lstOrdersList" runat="server" Height="233px" Width="401px"></asp:ListBox>
         </div>
+        <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" />
+        <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
+        <p>
+            <asp:Label ID="lblError" runat="server"></asp:Label>
+        </p>
     </form>
 </body>
 </html>
